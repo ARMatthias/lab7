@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Collections;
 interface StringChecker { boolean checkString(String s); }
 
 class ListExamples {
@@ -22,7 +22,10 @@ class ListExamples {
   // Takes two sorted list of strings (so "a" appears before "b" and so on),
   // and return a new list that has all the strings in both list in sorted order.
   static List<String> merge(List<String> list1, List<String> list2) {
-    List<String> result = new ArrayList<>();
+    List<String> result = list1;
+result.addAll(list2);
+Collections.sort(result);
+/*
     int index1 = 0, index2 = 0;
     while(index1 < list1.size() && index2 < list2.size()) {
       if(list1.get(index1).compareTo(list2.get(index2)) < 0) {
@@ -42,6 +45,7 @@ class ListExamples {
       result.add(list2.get(index2));
       index1 += 1;
     }
+*/
     return result;
   }
 
